@@ -20,18 +20,25 @@
                         <ViewCell>
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="2*" />
-                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="0.5*" />
+                                    <ColumnDefinition Width="0.3*" />
+                                    <ColumnDefinition Width="0.2*" />
                                 </Grid.ColumnDefinitions>
                                 <Label
-                                    FontSize="Medium"
+                                    FontSize="Small"
                                     FontAttributes="Bold"
                                     Grid.Column="0"
                                     Text="{Binding Description}">
                                 </Label>
                                 <Label
-                                    FontSize="Medium"
+                                    FontSize="Small"
+                                    FontAttributes="Bold"
                                     Grid.Column="1"
+                                    Text="{Binding VideoGameConsole.Description}">
+                                </Label>                                
+                                <Label
+                                    FontSize="Small"
+                                    Grid.Column="2"
                                     HorizontalTextAlignment="End"
                                     Text="{Binding Price, StringFormat='{0:C2}'}">
                                 </Label>

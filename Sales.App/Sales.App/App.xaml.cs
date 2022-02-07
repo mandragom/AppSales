@@ -11,7 +11,7 @@ namespace Sales.App
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new VideoGameConsolesPage());
+            MainPage = new NavigationPage(new VideoGamePage());
         }
 
         protected override void OnStart()

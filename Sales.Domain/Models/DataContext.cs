@@ -12,11 +12,10 @@ namespace Sales.Domain.Models
     {
         public DataContext() : base("DefaultConnection")
         {
-
         }
 
-        public System.Data.Entity.DbSet<VideoGameConsole> VideoGameConsoles { get; set; }
+        public DbSet<VideoGameConsole> VideoGameConsoles { get; set; }
 
-        public System.Data.Entity.DbSet<VideoGames> VideoGames { get; set; }
+        public DbSet<VideoGames> VideoGames { get; set; }
     }
 }

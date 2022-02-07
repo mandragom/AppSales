@@ -13,7 +13,7 @@ namespace Sales.Common.Models
         public int ID_VideoGameConsole { get; set; }
 
         [Required]
-        [Display(Name = "Description")]
+        [Display(Name = "Description Console")]
         [StringLength(100, ErrorMessage = "The field {0} can contain maximum {1}")]
         public string Description { get; set; }
 

@@ -1,4 +1,5 @@
-﻿using Sales.Domain.Models;
+﻿using Sales.Common.Models;
+using Sales.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,8 +9,8 @@ namespace Sales.Backend.Models
 {
     public class LocalDataContext : DataContext
     {
-        public System.Data.Entity.DbSet<Sales.Common.Models.VideoGameConsole> VideoGameConsoles { get; set; }
+        public System.Data.Entity.DbSet<VideoGameConsole> VideoGameConsoles { get; set; }
 
-        public System.Data.Entity.DbSet<CommonSales.Models.VideoGames> VideoGames { get; set; }
+        public System.Data.Entity.DbSet<VideoGames> VideoGames { get; set; }
     }
 }

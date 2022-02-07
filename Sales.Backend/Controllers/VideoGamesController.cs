@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using CommonSales.Models;
 using Sales.Backend.Models;
+using Sales.Common.Models;
 
 namespace Sales.Backend.Controllers
 {
@@ -19,7 +19,8 @@ namespace Sales.Backend.Controllers
         // GET: VideoGames
         public async Task<ActionResult> Index()
         {
-            return View(await db.VideoGames.ToListAsync());
+            var videoGames = db.VideoGames.Include(v => v.VideoGameConsole);
+            return View(await videoGames.ToListAsync());
         }
 
         // GET: VideoGames/Details/5
@@ -40,6 +41,7 @@ namespace Sales.Backend.Controllers
         // GET: VideoGames/Create
         public ActionResult Create()
         {
+            ViewBag.ID_VideoGameConsole = new SelectList(db.VideoGameConsoles, "ID_VideoGameConsole", "Description");
             return View();
         }
 
@@ -48,7 +50,7 @@ namespace Sales.Backend.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "ID_VideoGames,Description,Remarks,ImagePath,Price,IsAvailable,PublishOn")] VideoGames videoGames)
+        public async Task<ActionResult> Create([Bind(Include = "ID_VideoGames,ID_VideoGameConsole,Description,Remarks,ImagePath,Price,IsAvailable,PublishOn")] VideoGames videoGames)
         {
             if (ModelState.IsValid)
             {
@@ -57,6 +59,7 @@ namespace Sales.Backend.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.ID_VideoGameConsole = new SelectList(db.VideoGameConsoles, "ID_VideoGameConsole", "Description", videoGames.ID_VideoGameConsole);
             return View(videoGames);
         }
 
@@ -72,6 +75,7 @@ namespace Sales.Backend.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.ID_VideoGameConsole = new SelectList(db.VideoGameConsoles, "ID_VideoGameConsole", "Description", videoGames.ID_VideoGameConsole);
             return View(videoGames);
         }
 
@@ -80,7 +84,7 @@ namespace Sales.Backend.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "ID_VideoGames,Description,Remarks,ImagePath,Price,IsAvailable,PublishOn")] VideoGames videoGames)
+        public async Task<ActionResult> Edit([Bind(Include = "ID_VideoGames,ID_VideoGameConsole,Description,Remarks,ImagePath,Price,IsAvailable,PublishOn")] VideoGames videoGames)
         {
             if (ModelState.IsValid)
             {
@@ -88,6 +92,7 @@ namespace Sales.Backend.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
+            ViewBag.ID_VideoGameConsole = new SelectList(db.VideoGameConsoles, "ID_VideoGameConsole", "Description", videoGames.ID_VideoGameConsole);
             return View(videoGames);
         }
 

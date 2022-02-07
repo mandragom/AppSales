@@ -1,4 +1,4 @@
-﻿@model CommonSales.Models.VideoGames
+﻿@model Sales.Common.Models.VideoGames
 
 @{
     ViewBag.Title = "Edit";
@@ -22,6 +22,14 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ID_VideoGameConsole, "Console", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ID_VideoGameConsole", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ID_VideoGameConsole, "", new { @class = "text-danger" })
             </div>
         </div>
 
