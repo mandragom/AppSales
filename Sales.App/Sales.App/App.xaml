@@ -9,6 +9,8 @@
             <!-- Locator -->
             <infra:InstanceLocator x:Key="Locator"/>
         
+            <!-- Parameters -->
+            <x:String x:Key="UrlAPI">https://02e8-2806-2f0-9020-a470-6147-ec22-e57b-7e00.ngrok.io</x:String>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
