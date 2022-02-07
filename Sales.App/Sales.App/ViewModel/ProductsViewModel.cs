@@ -1,5 +1,6 @@
 ﻿using CommonSales.Models;
 using GalaSoft.MvvmLight.Command;
+using Sales.App.Helpers;
 using Sales.App.Services;
 using System;
 using System.Collections.Generic;
@@ -36,12 +37,27 @@ namespace Sales.App.ViewModel
         private async void LoadProducts()
         {
             this.IsRefreshing = true;
-            //var url = Application.Current.Resources["UrlAPI"].ToString();
-            var response = await this._apiservice.GetList<Product>("https://02e8-2806-2f0-9020-a470-6147-ec22-e57b-7e00.ngrok.io", "/api", "/Products");
+
+            //Validate internet connection
+            var connection = await this._apiservice.CheckConnection();
+            if (!connection.IsSuccess)
+            {
+                this.IsRefreshing = false;
+                await Application.Current.MainPage.DisplayAlert(Languages.Error, connection.Message, Languages.Accept);
+                return;
+            }
+
+
+            //Get the product list
+            var url = Application.Current.Resources["UrlAPI"].ToString();
+            var prefix = Application.Current.Resources["UrlPrefix"].ToString();
+            var controller = Application.Current.Resources["UrlProductsController"].ToString();
+
+            var response = await this._apiservice.GetList<Product>(url, prefix, controller);
             if (!response.IsSuccess)
             {
                 this.IsRefreshing = false;
-                await Application.Current.MainPage.DisplayAlert("Error", response.Message, "Accept");
+                await Application.Current.MainPage.DisplayAlert(Languages.Error, response.Message, Languages.Accept);
                 return;
             }
 
