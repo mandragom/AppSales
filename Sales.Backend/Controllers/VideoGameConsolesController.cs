@@ -7,112 +7,112 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using BackendSales.Models;
-using CommonSales.Models;
+using Sales.Backend.Models;
+using Sales.Common.Models;
 
 namespace Sales.Backend.Controllers
 {
-    public class ProductsController : Controller
+    public class VideoGameConsolesController : Controller
     {
         private LocalDataContext db = new LocalDataContext();
 
-        // GET: Products
+        // GET: VideoGameConsoles
         public async Task<ActionResult> Index()
         {
-            return View(await db.Products.ToListAsync());
+            return View(await db.VideoGameConsoles.ToListAsync());
         }
 
-        // GET: Products/Details/5
+        // GET: VideoGameConsoles/Details/5
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = await db.Products.FindAsync(id);
-            if (product == null)
+            VideoGameConsole videoGameConsole = await db.VideoGameConsoles.FindAsync(id);
+            if (videoGameConsole == null)
             {
                 return HttpNotFound();
             }
-            return View(product);
+            return View(videoGameConsole);
         }
 
-        // GET: Products/Create
+        // GET: VideoGameConsoles/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Products/Create
+        // POST: VideoGameConsoles/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "ProductID,Description,Price,IsAvailable,PublishOn")] Product product)
+        public async Task<ActionResult> Create([Bind(Include = "ID_VideoGameConsole,Description,IsAvailable,PublishOn")] VideoGameConsole videoGameConsole)
         {
             if (ModelState.IsValid)
             {
-                db.Products.Add(product);
+                db.VideoGameConsoles.Add(videoGameConsole);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
-            return View(product);
+            return View(videoGameConsole);
         }
 
-        // GET: Products/Edit/5
+        // GET: VideoGameConsoles/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = await db.Products.FindAsync(id);
-            if (product == null)
+            VideoGameConsole videoGameConsole = await db.VideoGameConsoles.FindAsync(id);
+            if (videoGameConsole == null)
             {
                 return HttpNotFound();
             }
-            return View(product);
+            return View(videoGameConsole);
         }
 
-        // POST: Products/Edit/5
+        // POST: VideoGameConsoles/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "ProductID,Description,Price,IsAvailable,PublishOn")] Product product)
+        public async Task<ActionResult> Edit([Bind(Include = "ID_VideoGameConsole,Description,IsAvailable,PublishOn")] VideoGameConsole videoGameConsole)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(product).State = EntityState.Modified;
+                db.Entry(videoGameConsole).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return View(product);
+            return View(videoGameConsole);
         }
 
-        // GET: Products/Delete/5
+        // GET: VideoGameConsoles/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = await db.Products.FindAsync(id);
-            if (product == null)
+            VideoGameConsole videoGameConsole = await db.VideoGameConsoles.FindAsync(id);
+            if (videoGameConsole == null)
             {
                 return HttpNotFound();
             }
-            return View(product);
+            return View(videoGameConsole);
         }
 
-        // POST: Products/Delete/5
+        // POST: VideoGameConsoles/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            Product product = await db.Products.FindAsync(id);
-            db.Products.Remove(product);
+            VideoGameConsole videoGameConsole = await db.VideoGameConsoles.FindAsync(id);
+            db.VideoGameConsoles.Remove(videoGameConsole);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }

@@ -129,7 +129,10 @@
   <data name="NoInternet" xml:space="preserve">
     <value>No internet connection.</value>
   </data>
-  <data name="Products" xml:space="preserve">
-    <value>Products</value>
+  <data name="VideoGameConsoles" xml:space="preserve">
+    <value>Videogame Consoles</value>
+  </data>
+  <data name="VideoGames" xml:space="preserve">
+    <value>Videogames</value>
   </data>
 </root>

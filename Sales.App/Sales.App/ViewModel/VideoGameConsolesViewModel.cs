@@ -1,4 +1,4 @@
-﻿using CommonSales.Models;
+﻿using Sales.Common.Models;
 using GalaSoft.MvvmLight.Command;
 using Sales.App.Helpers;
 using Sales.App.Services;
@@ -11,15 +11,15 @@ using Xamarin.Forms;
 
 namespace Sales.App.ViewModel
 {
-    public class ProductsViewModel : BaseViewModel
+    public class VideoGameConsolesViewModel : BaseViewModel
     {
         private ApiService _apiservice;
         private bool _isrefreshing;
-        private ObservableCollection<Product> _products;
+        private ObservableCollection<VideoGameConsole> _videogameconsole;
 
-        public ObservableCollection<Product> Products {
-            get { return this._products; }
-            set { this.SetValue(ref this._products, value);  }
+        public ObservableCollection<VideoGameConsole> VideoGameConsole {
+            get { return this._videogameconsole; }
+            set { this.SetValue(ref this._videogameconsole, value);  }
         }
 
         public bool IsRefreshing
@@ -28,13 +28,13 @@ namespace Sales.App.ViewModel
             set { this.SetValue(ref this._isrefreshing, value); }
         }
 
-        public ProductsViewModel()
+        public VideoGameConsolesViewModel()
         {
             this._apiservice = new ApiService();
-            this.LoadProducts();
+            this.LoadVideoGameConsoles();
         }
 
-        private async void LoadProducts()
+        private async void LoadVideoGameConsoles()
         {
             this.IsRefreshing = true;
 
@@ -51,9 +51,9 @@ namespace Sales.App.ViewModel
             //Get the product list
             var url = Application.Current.Resources["UrlAPI"].ToString();
             var prefix = Application.Current.Resources["UrlPrefix"].ToString();
-            var controller = Application.Current.Resources["UrlProductsController"].ToString();
+            var controller = Application.Current.Resources["UrlVideoGameConsolesController"].ToString();
 
-            var response = await this._apiservice.GetList<Product>(url, prefix, controller);
+            var response = await this._apiservice.GetList<VideoGameConsole>(url, prefix, controller);
             if (!response.IsSuccess)
             {
                 this.IsRefreshing = false;
@@ -61,8 +61,8 @@ namespace Sales.App.ViewModel
                 return;
             }
 
-            List<Product> list = (List<Product>)response.Result;
-            this.Products = new ObservableCollection<Product>(list);
+            List<VideoGameConsole> list = (List<VideoGameConsole>)response.Result;
+            this.VideoGameConsole = new ObservableCollection<VideoGameConsole>(list);
             this.IsRefreshing = false;
         }
 
@@ -70,7 +70,7 @@ namespace Sales.App.ViewModel
         {
             get 
             {
-                return new RelayCommand(LoadProducts);
+                return new RelayCommand(LoadVideoGameConsoles);
             }
        }
     }

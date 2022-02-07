@@ -9,49 +9,49 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
-using CommonSales.Models;
-using DomainSales.Models;
+using Sales.Common.Models;
+using Sales.Domain.Models;
 
 namespace Sales.API.Controllers
 {
-    public class ProductsController : ApiController
+    public class VideoGamesController : ApiController
     {
         private DataContext db = new DataContext();
 
-        // GET: api/Products
-        public IQueryable<Product> GetProducts()
+        // GET: api/VideoGames
+        public IQueryable<VideoGames> GetVideoGames()
         {
-            return db.Products;
+            return db.VideoGames;
         }
 
-        // GET: api/Products/5
-        [ResponseType(typeof(Product))]
-        public async Task<IHttpActionResult> GetProduct(int id)
+        // GET: api/VideoGames/5
+        [ResponseType(typeof(VideoGames))]
+        public async Task<IHttpActionResult> GetVideoGames(int id)
         {
-            Product product = await db.Products.FindAsync(id);
-            if (product == null)
+            VideoGames videoGames = await db.VideoGames.FindAsync(id);
+            if (videoGames == null)
             {
                 return NotFound();
             }
 
-            return Ok(product);
+            return Ok(videoGames);
         }
 
-        // PUT: api/Products/5
+        // PUT: api/VideoGames/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutProduct(int id, Product product)
+        public async Task<IHttpActionResult> PutVideoGames(int id, VideoGames videoGames)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != product.ProductID)
+            if (id != videoGames.ID_VideoGames)
             {
                 return BadRequest();
             }
 
-            db.Entry(product).State = EntityState.Modified;
+            db.Entry(videoGames).State = EntityState.Modified;
 
             try
             {
@@ -59,7 +59,7 @@ namespace Sales.API.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ProductExists(id))
+                if (!VideoGamesExists(id))
                 {
                     return NotFound();
                 }
@@ -72,35 +72,35 @@ namespace Sales.API.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Products
-        [ResponseType(typeof(Product))]
-        public async Task<IHttpActionResult> PostProduct(Product product)
+        // POST: api/VideoGames
+        [ResponseType(typeof(VideoGames))]
+        public async Task<IHttpActionResult> PostVideoGames(VideoGames videoGames)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Products.Add(product);
+            db.VideoGames.Add(videoGames);
             await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = product.ProductID }, product);
+            return CreatedAtRoute("DefaultApi", new { id = videoGames.ID_VideoGames }, videoGames);
         }
 
-        // DELETE: api/Products/5
-        [ResponseType(typeof(Product))]
-        public async Task<IHttpActionResult> DeleteProduct(int id)
+        // DELETE: api/VideoGames/5
+        [ResponseType(typeof(VideoGames))]
+        public async Task<IHttpActionResult> DeleteVideoGames(int id)
         {
-            Product product = await db.Products.FindAsync(id);
-            if (product == null)
+            VideoGames videoGames = await db.VideoGames.FindAsync(id);
+            if (videoGames == null)
             {
                 return NotFound();
             }
 
-            db.Products.Remove(product);
+            db.VideoGames.Remove(videoGames);
             await db.SaveChangesAsync();
 
-            return Ok(product);
+            return Ok(videoGames);
         }
 
         protected override void Dispose(bool disposing)
@@ -112,9 +112,9 @@ namespace Sales.API.Controllers
             base.Dispose(disposing);
         }
 
-        private bool ProductExists(int id)
+        private bool VideoGamesExists(int id)
         {
-            return db.Products.Count(e => e.ProductID == id) > 0;
+            return db.VideoGames.Count(e => e.ID_VideoGames == id) > 0;
         }
     }
 }

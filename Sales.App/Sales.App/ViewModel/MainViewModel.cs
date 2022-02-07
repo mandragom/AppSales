@@ -6,11 +6,14 @@ namespace Sales.App.ViewModel
 {
     public class MainViewModel
     {
-        public ProductsViewModel Products { get; set; }
+        public VideoGameConsolesViewModel VideoGameConsoles { get; set; }
+        public VideoGamesViewModel VideoGames { get; set; }
+
 
         public MainViewModel()
         {
-            this.Products = new ProductsViewModel();
+            this.VideoGameConsoles = new VideoGameConsolesViewModel();
+            this.VideoGames = new VideoGamesViewModel();
         }
     }
 }

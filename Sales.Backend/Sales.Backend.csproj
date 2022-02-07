@@ -170,10 +170,12 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\VideoGameConsolesController.cs" />
+    <Compile Include="Controllers\VideoGamesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LocalDataContext.cs" />
@@ -237,11 +239,16 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Products\Create.cshtml" />
-    <Content Include="Views\Products\Delete.cshtml" />
-    <Content Include="Views\Products\Details.cshtml" />
-    <Content Include="Views\Products\Edit.cshtml" />
-    <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\VideoGameConsoles\Create.cshtml" />
+    <Content Include="Views\VideoGameConsoles\Delete.cshtml" />
+    <Content Include="Views\VideoGameConsoles\Details.cshtml" />
+    <Content Include="Views\VideoGameConsoles\Edit.cshtml" />
+    <Content Include="Views\VideoGameConsoles\Index.cshtml" />
+    <Content Include="Views\VideoGames\Create.cshtml" />
+    <Content Include="Views\VideoGames\Delete.cshtml" />
+    <Content Include="Views\VideoGames\Details.cshtml" />
+    <Content Include="Views\VideoGames\Edit.cshtml" />
+    <Content Include="Views\VideoGames\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

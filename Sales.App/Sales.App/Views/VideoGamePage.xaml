@@ -2,18 +2,18 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:i18n="clr-namespace:Sales.App.Helpers"
-             x:Class="Sales.App.Views.ProductsPage"
+             x:Class="Sales.App.Views.VideoGamePage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
-             Title="{i18n:Translate Products}">
+             Title="{i18n:Translate VideoGames}">
     <ContentPage.Content>
         <StackLayout
-            BindingContext="{Binding Products}"
+            BindingContext="{Binding VideoGames}"
             Padding="15, 5">
             <ListView
                 HasUnevenRows="True"
                 IsRefreshing="{Binding IsRefreshing}"
                 IsPullToRefreshEnabled="True"
-                ItemsSource="{Binding Products}"
+                ItemsSource="{Binding VideoGame}"
                 RefreshCommand="{Binding RefreshCommand}">
                 <ListView.ItemTemplate>
                     <DataTemplate>

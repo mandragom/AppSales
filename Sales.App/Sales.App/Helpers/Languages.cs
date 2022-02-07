@@ -24,10 +24,15 @@ namespace Sales.App.Helpers
         {
             get { return Resource.Error; }
         }
-        public static string Products
+        public static string VideoGameConsoles
         {
-            get { return Resource.Products; }
+            get { return Resource.VideoGameConsoles; }
         }
+        public static string VideoGames
+        {
+            get { return Resource.VideoGames; }
+        }
+
         public static string NoInternet
         {
             get { return Resource.NoInternet; }

@@ -45,8 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\VideoGames.cs" />
     <Compile Include="Models\Response.cs" />
+    <Compile Include="Models\VideoGameConsole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

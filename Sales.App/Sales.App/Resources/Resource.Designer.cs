@@ -88,20 +88,29 @@ namespace Sales.App.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Products.
-        /// </summary>
-        public static string Products {
-            get {
-                return ResourceManager.GetString("Products", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Please turn on your internet settings..
         /// </summary>
         public static string TurnOnInternet {
             get {
                 return ResourceManager.GetString("TurnOnInternet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Videogame Consoles.
+        /// </summary>
+        public static string VideoGameConsoles {
+            get {
+                return ResourceManager.GetString("VideoGameConsoles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Videogames.
+        /// </summary>
+        public static string VideoGames {
+            get {
+                return ResourceManager.GetString("VideoGames", resourceCulture);
             }
         }
     }
