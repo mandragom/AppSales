@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using Sales.Backend.Models;
 using Sales.Common.Models;
+using Sales.Backend.Helpers;
 
 namespace Sales.Backend.Controllers
 {
@@ -38,32 +39,55 @@ namespace Sales.Backend.Controllers
             return View(videoGames);
         }
 
-        // GET: VideoGames/Create
         public ActionResult Create()
         {
             ViewBag.ID_VideoGameConsole = new SelectList(db.VideoGameConsoles, "ID_VideoGameConsole", "Description");
             return View();
         }
 
-        // POST: VideoGames/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "ID_VideoGames,ID_VideoGameConsole,Description,Remarks,ImagePath,Price,IsAvailable,PublishOn")] VideoGames videoGames)
+        public async Task<ActionResult> Create(VideoGameView objvideogame)
         {
             if (ModelState.IsValid)
             {
+                //Save image file
+                var pic = string.Empty;
+                var folder = "~/Content/Videogames";
+                if (objvideogame.ImageFile != null)
+                {
+                    pic = FilesHelper.UploadPhoto(objvideogame.ImageFile, folder);
+                    pic = $"{folder}/{pic}";
+                }
+                VideoGames videoGames = ToVideoGame(objvideogame, pic);
+
+
                 db.VideoGames.Add(videoGames);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ID_VideoGameConsole = new SelectList(db.VideoGameConsoles, "ID_VideoGameConsole", "Description", videoGames.ID_VideoGameConsole);
-            return View(videoGames);
+            ViewBag.ID_VideoGameConsole = new SelectList(db.VideoGameConsoles, "ID_VideoGameConsole", "Description", objvideogame.ID_VideoGameConsole);
+            return View(objvideogame);
         }
 
-        // GET: VideoGames/Edit/5
+        private VideoGames ToVideoGame(VideoGameView objvideogame, string pic)
+        {
+            return new VideoGames
+            {
+                ID_VideoGameConsole = objvideogame.ID_VideoGameConsole,
+                ID_VideoGames = objvideogame.ID_VideoGames,
+                Description = objvideogame.Description,
+                IsAvailable = objvideogame.IsAvailable,
+                Price = objvideogame.Price,
+                PublishOn = objvideogame.PublishOn,
+                Remarks = objvideogame.Remarks,
+                ImagePath = pic
+            };
+        }
+
+
+
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
@@ -76,27 +100,53 @@ namespace Sales.Backend.Controllers
                 return HttpNotFound();
             }
             ViewBag.ID_VideoGameConsole = new SelectList(db.VideoGameConsoles, "ID_VideoGameConsole", "Description", videoGames.ID_VideoGameConsole);
-            return View(videoGames);
+
+            //ConvertVideoGames to VideoGamesView
+            VideoGameView videoGameView = ToVideoGameView(videoGames);
+
+            return View(videoGameView);
         }
 
-        // POST: VideoGames/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        private VideoGameView ToVideoGameView(VideoGames videoGames)
+        {
+            return new VideoGameView
+            {
+                ID_VideoGameConsole = videoGames.ID_VideoGameConsole,
+                ID_VideoGames = videoGames.ID_VideoGames,
+                Description = videoGames.Description,
+                IsAvailable = videoGames.IsAvailable,
+                Price = videoGames.Price,
+                PublishOn = videoGames.PublishOn,
+                Remarks = videoGames.Remarks,
+            };
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "ID_VideoGames,ID_VideoGameConsole,Description,Remarks,ImagePath,Price,IsAvailable,PublishOn")] VideoGames videoGames)
+        public async Task<ActionResult> Edit(VideoGameView objvideogame)
         {
             if (ModelState.IsValid)
             {
+                //Save image file
+                var pic = string.Empty;
+                var folder = "~/Content/Videogames";
+                if (objvideogame.ImageFile != null)
+                {
+                    pic = FilesHelper.UploadPhoto(objvideogame.ImageFile, folder);
+                    pic = $"{folder}/{pic}";
+                }
+
+                //VideoGamesView to ConvertVideoGames
+                VideoGames videoGames = ToVideoGame(objvideogame, pic);
+
                 db.Entry(videoGames).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewBag.ID_VideoGameConsole = new SelectList(db.VideoGameConsoles, "ID_VideoGameConsole", "Description", videoGames.ID_VideoGameConsole);
-            return View(videoGames);
+            ViewBag.ID_VideoGameConsole = new SelectList(db.VideoGameConsoles, "ID_VideoGameConsole", "Description", objvideogame.ID_VideoGameConsole);
+            return View(objvideogame);
         }
 
-        // GET: VideoGames/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
@@ -111,7 +161,6 @@ namespace Sales.Backend.Controllers
             return View(videoGames);
         }
 
-        // POST: VideoGames/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
