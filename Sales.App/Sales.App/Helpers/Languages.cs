@@ -41,5 +41,13 @@ namespace Sales.App.Helpers
         {
             get { return Resource.TurnOnInternet; }
         }
+        public static string Console
+        {
+            get { return Resource.Console; }
+        }
+        public static string Price
+        {
+            get { return Resource.Price; }
+        }
     }
 }

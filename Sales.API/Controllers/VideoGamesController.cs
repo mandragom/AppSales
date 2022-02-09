@@ -35,7 +35,7 @@ namespace Sales.API.Controllers
 
                 query = "SELECT ga.ID_VideoGames, ga.Description, isnull(ga.Remarks, '') as Remarks, isnull(ga.ImagePath, '') as ImagePath, ga.Price, ga.IsAvailable, ga.PublishOn, " +
                         "ga.ID_VideoGameConsole, co.Description as DescriptionConsole, co.IsAvailable as IsAvailableConsole, co.PublishOn as " +
-                        "PublishOnConsole from dbo.VideoGames ga inner join VideoGameConsoles co on (co.ID_VideoGameConsole = ga.ID_VideoGameConsole)";
+                        "PublishOnConsole from dbo.VideoGames ga inner join VideoGameConsoles co on (co.ID_VideoGameConsole = ga.ID_VideoGameConsole) order by ga.Description";
 
                 using (SqlCommand varcommand = new SqlCommand(query, connection))
                 {

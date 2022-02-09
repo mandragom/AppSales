@@ -8,7 +8,8 @@
     <ContentPage.Content>
         <StackLayout
             BindingContext="{Binding VideoGames}"
-            Padding="15, 5">
+            Padding="0,3,0,0"
+            Margin="0,0,0,0">
             <ListView
                 HasUnevenRows="True"
                 IsRefreshing="{Binding IsRefreshing}"
@@ -18,30 +19,58 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid>
+                            <Grid BackgroundColor="#ffff"
+                                  RowSpacing="0"
+                                  ColumnSpacing="1"
+                                  >
+
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="0.5*" />
-                                    <ColumnDefinition Width="0.3*" />
-                                    <ColumnDefinition Width="0.2*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="2*" />
                                 </Grid.ColumnDefinitions>
-                                <Label
-                                    FontSize="Small"
-                                    FontAttributes="Bold"
+                                <Image
+                                    Source="{Binding ImageFullPath}"
                                     Grid.Column="0"
-                                    Text="{Binding Description}">
-                                </Label>
-                                <Label
-                                    FontSize="Small"
-                                    FontAttributes="Bold"
-                                    Grid.Column="1"
-                                    Text="{Binding VideoGameConsole.Description}">
-                                </Label>                                
-                                <Label
-                                    FontSize="Small"
-                                    Grid.Column="2"
-                                    HorizontalTextAlignment="End"
-                                    Text="{Binding Price, StringFormat='{0:C2}'}">
-                                </Label>
+                                    Margin="2,0,0,0"
+                                    WidthRequest="100">
+                                </Image>
+                                
+                                <StackLayout Grid.Column="1">
+                                    <Label
+                                        FontSize="Subtitle"
+                                        TextColor="#F20268"
+                                        FontAttributes="Bold"
+                                        Grid.Column="1"
+                                        Margin="0,5,0,0"
+                                        VerticalOptions="Start"
+                                        Text="{Binding Description}">
+                                    </Label>
+                                    <Label Padding="0,0,0,0" Margin="0,0,0,0">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{i18n:Translate Console}" FontAttributes="Bold" FontSize="Micro"/>
+                                                <Span Text=": " FontSize="Micro"/>
+                                                <Span Text="{Binding VideoGameConsole.Description}" FontSize="Micro" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label Padding="0,0,0,0" Margin="0,0,0,0">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{i18n:Translate Price}" FontAttributes="Bold" FontSize="Micro"/>
+                                                <Span Text=": " FontSize="Micro"/>
+                                                <Span Text="{Binding Price, StringFormat='{0:C2}'}" FontSize="Micro"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label
+                                        FontSize="Micro"
+                                        VerticalOptions="Start"
+                                        HorizontalOptions="Center"
+                                        Text="{Binding Remarks}">
+                                    </Label>
+
+                                </StackLayout>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

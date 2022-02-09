@@ -135,4 +135,10 @@
   <data name="VideoGames" xml:space="preserve">
     <value>Videogames</value>
   </data>
+  <data name="Console" xml:space="preserve">
+    <value>Console</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Price</value>
+  </data>
 </root>

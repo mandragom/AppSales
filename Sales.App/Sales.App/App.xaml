@@ -10,7 +10,7 @@
             <infra:InstanceLocator x:Key="Locator"/>
         
             <!-- Parameters -->
-            <x:String x:Key="UrlAPI">https://02e8-2806-2f0-9020-a470-6147-ec22-e57b-7e00.ngrok.io</x:String>
+            <x:String x:Key="UrlAPI">https://5949-2806-2f0-9001-5230-8c71-1937-aa8e-fc14.ngrok.io</x:String>
             <x:String x:Key="UrlPrefix">/api</x:String>
             <x:String x:Key="UrlVideoGameConsolesController">/VideoGameConsoles</x:String>
             <x:String x:Key="UrlVideoGames">/VideoGames</x:String>

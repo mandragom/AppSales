@@ -30,6 +30,18 @@ namespace Sales.Common.Models
         [Display(Name = "Image")]
         public string ImagePath { get; set; }
 
+        public string ImageFullPath 
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(this.ImagePath))
+                {
+                    return null;
+                }
+
+                return $"https://02e8-2806-2f0-9020-a470-6147-ec22-e57b-7e00.ngrok.io/{this.ImagePath.Substring(1)}";
+            }
+        }
 
         [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
         public decimal Price { get; set; }
