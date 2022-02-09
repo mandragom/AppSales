@@ -28,7 +28,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
-    <Compile Update="Views\VideoGamePage.xaml.cs">
+    <Compile Update="Views\VideoGame\VideoGamePage.xaml.cs">
       <DependentUpon>VideoGamePage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\VideoGameConsolesPage.xaml.cs">
@@ -41,7 +41,10 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\VideoGamePage.xaml">
+    <EmbeddedResource Update="Views\VideoGame\AddVideoGamePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\VideoGame\VideoGamePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\VideoGameConsolesPage.xaml">

@@ -39,7 +39,7 @@ namespace Sales.Common.Models
                     return null;
                 }
 
-                return $"https://02e8-2806-2f0-9020-a470-6147-ec22-e57b-7e00.ngrok.io/{this.ImagePath.Substring(1)}";
+                return $"https://5949-2806-2f0-9001-5230-8c71-1937-aa8e-fc14.ngrok.io/{this.ImagePath.Substring(1)}";
             }
         }
 

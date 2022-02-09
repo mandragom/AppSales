@@ -70,6 +70,15 @@ namespace Sales.App.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Videogame.
+        /// </summary>
+        public static string AddVideogame {
+            get {
+                return ResourceManager.GetString("AddVideogame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Console.
         /// </summary>
         public static string Console {
@@ -79,11 +88,47 @@ namespace Sales.App.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        public static string Description {
+            get {
+                return ResourceManager.GetString("Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter the game description .
+        /// </summary>
+        public static string DescriptionPlaceholder {
+            get {
+                return ResourceManager.GetString("DescriptionPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
         public static string Error {
             get {
                 return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to is available.
+        /// </summary>
+        public static string IsAvailable {
+            get {
+                return ResourceManager.GetString("IsAvailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select if the game is available.
+        /// </summary>
+        public static string IsAvailablePlaceholder {
+            get {
+                return ResourceManager.GetString("IsAvailablePlaceholder", resourceCulture);
             }
         }
         
@@ -102,6 +147,51 @@ namespace Sales.App.Resources {
         public static string Price {
             get {
                 return ResourceManager.GetString("Price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter the game price.
+        /// </summary>
+        public static string PricePlaceholder {
+            get {
+                return ResourceManager.GetString("PricePlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Publish on.
+        /// </summary>
+        public static string PublishOn {
+            get {
+                return ResourceManager.GetString("PublishOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter the game publish on.
+        /// </summary>
+        public static string PublishOnPlaceholder {
+            get {
+                return ResourceManager.GetString("PublishOnPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remarks.
+        /// </summary>
+        public static string Remarks {
+            get {
+                return ResourceManager.GetString("Remarks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter the game remarks.
+        /// </summary>
+        public static string RemarksPlaceholder {
+            get {
+                return ResourceManager.GetString("RemarksPlaceholder", resourceCulture);
             }
         }
         

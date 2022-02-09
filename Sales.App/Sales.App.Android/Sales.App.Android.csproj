@@ -90,14 +90,31 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\drawable\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Sales.App\Sales.App.csproj">
       <Project>{63FC4F24-F00E-463B-93A1-2A8EEFBCA636}</Project>
       <Name>Sales.App</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_action_add_circle.png" />
+    <Content Include="Resources\mipmap-anydpi-v26\ic_action_add_circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mipmap-hdpi\ic_action_add_circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mipmap-mdpi\ic_action_add_circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mipmap-xhdpi\ic_action_add_circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mipmap-xxhdpi\ic_action_add_circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mipmap-xxxhdpi\ic_action_add_circle.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

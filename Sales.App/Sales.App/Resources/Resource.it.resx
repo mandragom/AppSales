@@ -141,4 +141,34 @@
   <data name="Price" xml:space="preserve">
     <value>Prezzo</value>
   </data>
+  <data name="AddVideogame" xml:space="preserve">
+    <value>Videogioco</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Descrizione</value>
+  </data>
+  <data name="DescriptionPlaceholder" xml:space="preserve">
+    <value>Inserisci la descrizione</value>
+  </data>
+  <data name="PricePlaceholder" xml:space="preserve">
+    <value>Si prega di inserire prezzo</value>
+  </data>
+  <data name="Remarks" xml:space="preserve">
+    <value>Commenti!</value>
+  </data>
+  <data name="RemarksPlaceholder" xml:space="preserve">
+    <value>Si prega di inserire le osservazioni di gioco!</value>
+  </data>
+  <data name="IsAvailable" xml:space="preserve">
+    <value>è disponibile.</value>
+  </data>
+  <data name="IsAvailablePlaceholder" xml:space="preserve">
+    <value>Seleziona se il gioco è disponibile!</value>
+  </data>
+  <data name="PublishOn" xml:space="preserve">
+    <value>Pubblica su:</value>
+  </data>
+  <data name="PublishOnPlaceholder" xml:space="preserve">
+    <value>Per favore entra nel gioco pubblica su!</value>
+  </data>
 </root>

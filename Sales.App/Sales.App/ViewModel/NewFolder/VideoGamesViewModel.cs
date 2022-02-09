@@ -75,5 +75,4 @@ namespace Sales.App.ViewModel
             }
         }
     }
-
 }

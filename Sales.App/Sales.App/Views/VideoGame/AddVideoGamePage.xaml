@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:i18n="clr-namespace:Sales.App.Helpers"
+             x:Class="Sales.App.ViewModel.AddVideoGamePage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="{i18n:Translate AddVideogame}">
+    <ContentPage.Content>
+        <StackLayout
+            BindingContext="{Binding AddVideogames}"
+            Padding="10,8,10,0"
+            Margin="0,0,0,0">
+            
+            <!--add the field description -->
+            <Label Text="{i18n:Translate Description}" Padding="5,0,0,0" FontAttributes="bold"/>
+            <Entry Placeholder="{i18n:Translate DescriptionPlaceholder}" />
+
+            <!--add the field price -->
+            <Label Text="{i18n:Translate Price}" Padding="5,15,0,0" FontAttributes="bold"/>
+            <Entry Placeholder="{i18n:Translate PricePlaceholder}" Keyboard="Numeric" MaxLength="300"/>
+
+            <!--add the field Remarks -->
+            <Label Text="{i18n:Translate Remarks}" Padding="5,15,0,0" FontAttributes="bold"/>
+            <Editor Placeholder="{i18n:Translate RemarksPlaceholder}" />
+
+            <!--add the field PublishOn -->
+            <Label Text="{i18n:Translate PublishOn}" Padding="5,15,0,0" FontAttributes="bold"/>
+            <DatePicker MinimumDate="01/01/2018" MaximumDate="12/31/2018" Date="06/21/2018" />
+            
+            <!--add the field IsAvailable -->
+            <StackLayout Orientation="Horizontal" Padding="0, 15,0,0" >
+                <Switch IsToggled="False" OnColor="DarkGray" ThumbColor="LightGray"/>
+                <Label Text="{i18n:Translate IsAvailable}" Padding="0,0,0,0" FontAttributes="bold"/>
+            </StackLayout>
+
+
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

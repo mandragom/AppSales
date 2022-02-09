@@ -5,6 +5,9 @@
              x:Class="Sales.App.Views.VideoGamePage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="{i18n:Translate VideoGames}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="ic_action_add_circle.png" Command="{Binding AddVideoGame}" CommandParameter="/VideoGame" />
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout
             BindingContext="{Binding VideoGames}"

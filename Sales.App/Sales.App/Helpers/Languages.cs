@@ -28,10 +28,6 @@ namespace Sales.App.Helpers
         {
             get { return Resource.VideoGameConsoles; }
         }
-        public static string VideoGames
-        {
-            get { return Resource.VideoGames; }
-        }
 
         public static string NoInternet
         {
@@ -41,13 +37,31 @@ namespace Sales.App.Helpers
         {
             get { return Resource.TurnOnInternet; }
         }
+
+        #region Videogames
+
+        public static string VideoGames
+        {
+            get { return Resource.VideoGames; }
+        }
+
+        public static string AddVideogame
+        {
+            get { return Resource.AddVideogame; }
+        }
+
         public static string Console
         {
             get { return Resource.Console; }
         }
+
         public static string Price
         {
             get { return Resource.Price; }
         }
+
+
+        #endregion
+
     }
 }
